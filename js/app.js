@@ -5,7 +5,7 @@ const loadPhone = () => {
     const searchText = searchBox.value;
     // clear data
     searchBox.value = '';
-    if (searchBox.length == '') {
+    if (searchText.length == '') {
         errorMessage.style.display = "block"
     }
     // load data
@@ -13,13 +13,14 @@ const loadPhone = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhone(data.data))
+    errorMessage.style.display = "none";
 };
 
 const displayPhone = phones => {
     console.log(phones)
     const searchPhone = document.getElementById('search-result');
     searchPhone.textContent = '';
-    if (searchPhone.length == 0) {
+    if (phones.length == 0) {
         errorMessage.style.display = "block";
     }
     phones.forEach(phone => {
