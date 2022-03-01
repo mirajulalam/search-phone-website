@@ -19,8 +19,8 @@ const loadPhone = () => {
 const displayPhone = phones => {
     console.log(phones);
     const searchPhone = document.getElementById('search-result');
-    const first20Data = phones.slice(0, 20);
     searchPhone.textContent = '';
+    const first20Data = phones.slice(0, 20);
     if (phones.length == 0) {
         errorMessage.style.display = "block";
     }
@@ -59,24 +59,26 @@ const displayPhoneByDetails = info => {
     <img  src="${info.image}" class="card-img-top w-50 mb-3" alt="...">
     </div>
                     <div class="card-body">
-                        <h2 class="card-title">Name: ${info.name}</h2>
+                        <h2>Name: ${info.name}</h2>
                         <h4>ReleaseDate: ${info.releaseDate || 'No release date found'}</h4>
-                        <p class="card-text">Storage: ${info.mainFeatures.storage}
+                        <h5>MainFeatures</h5>
+                        <p>Storage: ${info.mainFeatures.storage || 'No result found'}
                          </p>
-                         <p class="card-text">Memory: ${info.mainFeatures.memory}
+                         <p>Memory: ${info.mainFeatures.memory}
                          </p>
-                        <p class="card-text">DisplaySize: ${info.mainFeatures.displaySize}
+                        <p>DisplaySize: ${info.mainFeatures.displaySize}
                          </p>
-                        <p class="card-text">ChipSet: ${info.mainFeatures.chipSet}
+                        <p>ChipSet: ${info.mainFeatures.chipSet}
                          </p>
-                        <h5 class="card-text">Sensors: ${info.mainFeatures.sensors}
-                      </h5>                
-                         <p>Bluetooth: ${info.others.Bluetooth}</p>
-                         <p>Gps: ${info.others.GPS}</p>
-                         <p>Nfc: ${info.others.NFC}</p>
-                         <p>Radio: ${info.others.Radio}</p>
-                         <p>Usb: ${info.others.USB}</p>
-                         <p>Wlan: ${info.others.WLAN}</p>
+                        <p>Sensors: ${info.mainFeatures.sensors}
+                      </p>
+                         <h5>Other Features</h5>            
+                         <p>Bluetooth: ${info.others?.Bluetooth}</p>
+                         <p>Gps: ${info.others?.GPS}</p>
+                         <p>Nfc: ${info.others?.NFC}</p>
+                         <p>Radio: ${info.others?.Radio}</p>
+                         <p>Usb: ${info.others?.USB}</p>
+                         <p>Wlan: ${info.others?.WLAN}</p>
                     </div>
     `;
     phoneDetails.appendChild(div)
