@@ -54,12 +54,12 @@ const displayPhoneByDetails = info => {
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
-    <div class="text-center p-3 ">
+    <div class="text-center p-3">
     <img  src="${info.image}" class="card-img-top w-50 mb-3" alt="...">
     </div>
                     <div class="card-body">
                         <h2 class="card-title">Name: ${info.name}</h2>
-                        <h4>ReleaseDate: ${info.releaseDate}</h4>
+                        <h4>ReleaseDate: ${info.releaseDate || 'No release date found'}</h4>
                         <p class="card-text">Storage: ${info.mainFeatures.storage}
                          </p>
                          <p class="card-text">Memory: ${info.mainFeatures.memory}
