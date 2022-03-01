@@ -67,6 +67,14 @@ const displayPhoneByDetails = info => {
                          </p>
                         <p class="card-text">ChipSet: ${info.mainFeatures.chipSet}
                          </p>
+                        <h5 class="card-text">Sensors: ${info.mainFeatures.sensors}
+                      </h5>                
+                         <p">Bluetooth: ${info.others.Bluetooth}</p>
+                         <p">Gps: ${info.others.GPS}</p>
+                         <p">Nfc: ${info.others.NFC}</p>
+                         <p">Radio: ${info.others.Radio}</p>
+                         <p">Usb: ${info.others.USB}</p>
+                         <p">Wlan: ${info.others.WLAN}</p>
                     </div>
     `;
     phoneDetails.appendChild(div)
