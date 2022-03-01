@@ -17,17 +17,29 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12">
+
                 <!-- search input area -->
                 <div class="input-group mb-3 w-50 mx-auto">
-                    <input id="search-box" type="text" class="form-control" placeholder="Search"
+                    <input id="search-box" type="text" class="form-control" placeholder="Search phone"
                         aria-label="Search username" aria-describedby="button-addon2">
                     <button onclick="loadPhone()" class="btn btn-outline-secondary" type="button"
                         id="button-search">Search</button>
                 </div>
-                <!-- search card area -->
-                <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+
+                <!-- error message -->
+                <div>
+                    <p id="error-message" class="text-center text-danger fs-2">No result found</p>
+                </div>
+
+                <!-- single phone details -->
+                <div id="phone-Details" class="w-50 mx-auto mb-3">
 
                 </div>
+
+                <!-- search card area -->
+                <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+                </div>
+
             </div>
         </div>
     </div>

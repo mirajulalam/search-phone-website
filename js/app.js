@@ -1,6 +1,14 @@
+const errorMessage = document.getElementById('error-message');
+errorMessage.style.display = "none";
 const loadPhone = () => {
     const searchBox = document.getElementById('search-box');
     const searchText = searchBox.value;
+    // clear data
+    searchBox.value = '';
+    if (searchBox.length == '') {
+        errorMessage.style.display = "block"
+    }
+    // load data
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
         .then(res => res.json())
@@ -10,6 +18,10 @@ const loadPhone = () => {
 const displayPhone = phones => {
     console.log(phones)
     const searchPhone = document.getElementById('search-result');
+    searchPhone.textContent = '';
+    if (searchPhone.length == 0) {
+        errorMessage.style.display = "block";
+    }
     phones.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
@@ -29,3 +41,33 @@ const displayPhone = phones => {
         searchPhone.appendChild(div);
     });
 };
+const loadPhoneById = id => {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayPhoneByDetails(data.data))
+};
+const displayPhoneByDetails = info => {
+    console.log(info)
+    const phoneDetails = document.getElementById('phone-Details');
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+    <div class="text-center">
+    <img src="${info.image}" class="card-img-top w-50 mb-3" alt="...">
+    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Name: ${info.name}</h2>
+                        <h4>ReleaseDate: ${info.releaseDate}</h4>
+                        <p class="card-text">Storage: ${info.mainFeatures.storage}
+                         </p>
+                         <p class="card-text">Memory: ${info.mainFeatures.memory}
+                         </p>
+                        <p class="card-text">DisplaySize: ${info.mainFeatures.displaySize}
+                         </p>
+                        <p class="card-text">ChipSet: ${info.mainFeatures.chipSet}
+                         </p>
+                    </div>
+    `;
+    phoneDetails.appendChild(div)
+}
