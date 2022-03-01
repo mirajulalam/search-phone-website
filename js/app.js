@@ -1,3 +1,4 @@
+// error handle
 const errorMessage = document.getElementById('error-message');
 errorMessage.style.display = "none";
 const loadPhone = () => {
@@ -43,6 +44,7 @@ const displayPhone = phones => {
     });
 };
 const loadPhoneById = id => {
+    // load Phone Id
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
         .then(res => res.json())
@@ -60,7 +62,7 @@ const displayPhoneByDetails = info => {
                         <h2>Name: ${info.name}</h2>
                         <h4>ReleaseDate: ${info.releaseDate || 'No release date found'}</h4>
                         <h5>MainFeatures</h5>
-                        <p>Storage: ${info.mainFeatures.storage || 'No result found'}
+                        <p>Storage: ${info.mainFeatures.storage}
                          </p>
                          <p>Memory: ${info.mainFeatures.memory}
                          </p>
