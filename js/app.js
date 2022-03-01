@@ -17,7 +17,6 @@ const loadPhone = () => {
 };
 
 const displayPhone = phones => {
-    console.log(phones);
     const searchPhone = document.getElementById('search-result');
     searchPhone.textContent = '';
     const first20Data = phones.slice(0, 20);
@@ -50,7 +49,6 @@ const loadPhoneById = id => {
         .then(data => displayPhoneByDetails(data.data))
 };
 const displayPhoneByDetails = info => {
-    console.log(info)
     const phoneDetails = document.getElementById('phone-Details');
     const div = document.createElement('div');
     div.classList.add('card');
